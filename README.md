@@ -33,16 +33,22 @@ lines, prefix each one with a # character:
 
 "# This is a comment"
 
-#Atoms
+#Pattern Matching
 
-Atoms are literal named constants. They’re similar to symbols in Ruby or enumera-
-tions in C/C++. Atom constants start with a colon character, followed by a combina-
-tion of alphanumerics and/or underscore characters:
+The pattern-matching expression consists of two parts: the pattern (left side) and
+the term (right side). In a match expression, the attempt to match the term to the pat-
+tern takes place.
 
-:an_atom
-:another_atom
+If the match succeeds, all variables in the pattern are bound to the corresponding
+values from the term. The result of the entire expression is the entire term you
+matched. If the match fails, an error is raised.
+Therefore, in a pattern-matching expression, you perform two different tasks:
 
-It’s possible to use spaces in the atom name with the following syntax:
-:"an atom with spaces"
 
-An atom consists of two parts: the text and the value. The atom text is whatever you put after the colon character. At runtime, this text is kept in the atom table. The value is the data that goes into the variable, and it’s merely a reference to the atom table. This is exactly why atoms are best used for named constants. They’re efficient both memory- and performance-wise.
+1) You assert your expectations about the right-side term. If these expectations
+aren’t met, an error is raised.
+2) You bind some parts of the term to variables from the pattern.
+
+The match operator = is just one example where pattern matching can be used. Pat-
+tern matching powers many other kinds of expressions, and it’s especially powerful
+when used in functions.

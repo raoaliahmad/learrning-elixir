@@ -98,3 +98,31 @@ end
 # Remember that Elixir is a dynamic language, so function inputs and output can’t be
 # easily deduced by looking at the function’s signature. Typespecs can help significantly
 # with this
+
+# ============> THE MIX TOOL <==========
+
+# The mix tool is used to manage projects that are made up of multiple source files.
+# Whenever you need to build a production-ready system, mix is your best option. To
+# create a new mix project, you can call mix new project_name from the command line:
+
+# 	$ mix new my_project
+
+# This creates a new folder named my_project containing a couple of subfolders and
+# files. You can change to the my_project folder and compile the entire project:
+# 	$ cd my_project
+# 	$ mix compile
+
+# 	Compiled lib/my_project.ex
+# 	Compiled lib/my_project/supervisor.ex
+# 	Generated my_project.app
+
+# The compilation goes through all the files from the lib and places the resulting beam
+# files in the ebin folder. You can now start the mix project in multiple ways:
+
+
+# 	$ mix run   (Starts the system; terminates as soon as MyProject.start finishes)
+# 	$ mix run --no-halt  (Starts the system, doesn’t terminate)
+# 	$ iex -S mix run (Starts the system and then loads the interactive shell)
+
+# Regardless of how you start the mix project, it ensures that the ebin folder (where the
+# beam files are placed) is in the load path so the VM can find your modules.
